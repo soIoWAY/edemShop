@@ -1,12 +1,22 @@
 import Image from 'next/image'
+import Link from 'next/link'
+import { useState } from 'react'
+import { FaInstagram, FaPhone, FaTelegram } from 'react-icons/fa'
+import ItemModal from './itemModal/ItemModal'
 
 interface Item {
 	name: string
 	price: number
 	photo: string
+	id: number
 }
 
-const Item = ({ photo, name, price }: Item) => {
+const Item = ({ photo, name, price, id }: Item) => {
+	const [showModal, setShowModal] = useState(false)
+
+	const modalHandler = () => {
+		setShowModal(!showModal)
+	}
 	return (
 		<div className='flex flex-wrap justify-center mx-auto'>
 			<div className='max-w-sm m-4 p-4 bg-transparent rounded-lg flex flex-col justify-between '>
@@ -16,34 +26,55 @@ const Item = ({ photo, name, price }: Item) => {
 					<p className='mt-2'>
 						<span className='text-yellow-500 font-bold'>{price}</span> грн
 					</p>
-					<button className='mt-4 bg-yellow-500 text-white font-bold py-2 px-12  '>
+					<button
+						className='mt-4 bg-yellow-500 text-white font-bold py-2 px-12 '
+						onClick={modalHandler}
+					>
 						Купити
 					</button>
 				</div>
 			</div>
+			{showModal && (
+				<ItemModal onClose={modalHandler}>
+					<div>
+						<Image src={photo} width={320} height={320} alt={name} />
+						<div className='border-t-2 border-yellow-500 mt-2 text-xl'>
+							<p className='text-gray-300 text-base mt-1'>id:{id}</p>
+							<h2>«{name}»</h2>
+							<span>
+								<span className='text-yellow-500 font-bold'>{price}</span> грн
+							</span>
+							<div className='flex flex-col items-center'>
+								<p>Купити в:</p>
+								<div className='flex gap-3 text-3xl mt-2 text-yellow-500'>
+									<Link
+										href='https://t.me/xzvetal'
+										border-yellow-500
+										className='border-2 rounded-full p-2'
+									>
+										<FaTelegram />
+									</Link>
+									<Link
+										href='https://www.instagram.com/edem_flowers_lviv/'
+										className='border-2 rounded-full p-2'
+										target='_blank'
+									>
+										<FaInstagram />
+									</Link>
+									<Link
+										href='tel:+380689848064'
+										className='border-2 rounded-full p-2'
+										target='_blank'
+									>
+										<FaPhone />
+									</Link>
+								</div>
+							</div>
+						</div>
+					</div>
+				</ItemModal>
+			)}
 		</div>
-		// <div className='w-full sm:w-1/2 md:w-1/3 lg:1/4 p-3'>
-		// 	<div className='inline-block'>
-		// 		<div className='border border-yellow-600 flex flex-col'>
-		// 			<div className='border-b border-yellow-600'>
-		// 				<Image src={photo} width={320} height={320} alt={name} />
-		// 			</div>
-		// 			<div className='px-1 py-1'>
-		// 				<div className='text-left mb-5 whitespace-pre-wrap break-words max-w-[270px]'>
-		// 					{name}
-		// 				</div>
-		// 				<div className='flex justify-between items-center'>
-		// 					<div>{price} грн</div>
-		// 					<div>
-		// 						<button className='border border-yellow-600 px-3 py-1 hover:bg-yellow-600 transition-all'>
-		// 							Купити
-		// 						</button>
-		// 					</div>
-		// 				</div>
-		// 			</div>
-		// 		</div>
-		// 	</div>
-		// </div>
 	)
 }
 

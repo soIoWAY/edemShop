@@ -1,6 +1,7 @@
+import Link from 'next/link'
 const Header = () => {
 	return (
-		<header className='py-2 text-sm border-b border-yellow-600'>
+		<header className='py-2 text-sm border-b border-yellow-600' id='header'>
 			<div className='header-inner w-[90%] sm:w-[75%] m-auto flex justify-between'>
 				<div>
 					<span className='text-yellow-500 border-b-2 border-yellow-500'>
@@ -12,7 +13,9 @@ const Header = () => {
 					<div>Відправка в робочий час</div>
 				</div>
 				<div>
-					<button className='hover:text-yellow-500 transition-all'>Інфо</button>
+					<Link href='/about' className='hover:text-yellow-500 transition-all'>
+						Інфо
+					</Link>
 				</div>
 			</div>
 		</header>

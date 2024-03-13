@@ -9,7 +9,7 @@ const Navbar = () => {
 			<h1 className='text-3xl font-semibold tracking-wider'>Асортимент</h1>
 			<nav>
 				<div className='overflow-x-scroll overflow-y-hidden whitespace-nowrap p-2'>
-					<ul className='flex gap-14 text-base'>
+					<ul className='flex gap-8 sm:gap-14 text-base'>
 						<li>
 							<Link href='/catalog' className={navUlLiStyles}>
 								Каталог
@@ -21,19 +21,19 @@ const Navbar = () => {
 							</Link>
 						</li>
 						<li>
-							<a href='' className={navUlLiStyles}>
+							<Link href='/catalog/' className={navUlLiStyles}>
 								Кульки
-							</a>
+							</Link>
 						</li>
 						<li>
-							<a href='' className={navUlLiStyles}>
+							<Link href='/catalog/dryflowers' className={navUlLiStyles}>
 								Сухоцвіти
-							</a>
+							</Link>
 						</li>
 						<li>
-							<a href='' className={navUlLiStyles}>
+							<Link href='/about#contacts' className={navUlLiStyles}>
 								Контакти
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</div>

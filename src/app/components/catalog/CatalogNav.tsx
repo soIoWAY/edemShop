@@ -9,10 +9,10 @@ const CatalogNav = () => {
 						<Link href='/catalog/bouquets'>Букети</Link>
 					</li>
 					<li className='transition-all hover:text-yellow-500 border-b-2 border-yellow-600 hover:border-white'>
-						<Link href='/catalog/cottonweed'>Сухоцвіти</Link>
+						<Link href='/catalog/'>Сухоцвіти</Link>
 					</li>
 					<li className='transition-all hover:text-yellow-500 border-b-2 border-yellow-600 hover:border-white'>
-						<Link href='/catalog/balls'>Бокси</Link>
+						<Link href='/catalog/boxes'>Бокси</Link>
 					</li>
 				</ul>
 			</div>

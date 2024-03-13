@@ -1,7 +1,7 @@
 'use client'
 import axios from 'axios'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import Item from './Item'
 
@@ -13,10 +13,27 @@ interface IItem {
 	item_type: string
 }
 
-async function getItems() {
+async function getItems(
+	sortParam: string | null,
+	priceFrom: string | null,
+	priceTo: string | null,
+	pathname: string | null
+) {
 	try {
-		const res = await axios.get<IItem[]>('http://localhost:5555/api/item')
-		return res.data
+		const urlByItemType = `http://localhost:5555/api/item?sort=${sortParam}&priceFrom=${priceFrom}&priceTo=${priceTo}`
+		if (pathname && pathname === '/catalog/bouquets') {
+			let url = urlByItemType + '&itemType=bouquet'
+			const res = await axios.get<IItem[]>(url)
+			return res.data
+		} else if (pathname && pathname === '/catalog/boxes') {
+			let url = urlByItemType + '&itemType=box'
+			const res = await axios.get<IItem[]>(url)
+			return res.data
+		} else {
+			let url = urlByItemType
+			const res = await axios.get<IItem[]>(url)
+			return res.data
+		}
 	} catch (error) {
 		console.error(error)
 		return []
@@ -24,16 +41,27 @@ async function getItems() {
 }
 
 export default function ItemList() {
-	const router = useRouter()
+	const searchParams = useSearchParams()
+	const sortParam = searchParams.get('sort')
+	const priceFromParam = searchParams.get('priceFrom')
+	const priceToParam = searchParams.get('priceTo')
 	const [items, setItems] = useState<IItem[]>([])
 
+	const pathname = usePathname()
+
 	useEffect(() => {
+		console.log(pathname, typeof pathname)
 		const fetchItems = async () => {
-			const fetchedItems = await getItems()
+			const fetchedItems = await getItems(
+				sortParam,
+				priceFromParam,
+				priceToParam,
+				pathname
+			)
 			setItems(fetchedItems)
 		}
 		fetchItems()
-	}, [])
+	}, [sortParam, priceFromParam, priceToParam, pathname])
 
 	return (
 		<div className='flex flex-col items-center'>
@@ -44,6 +72,7 @@ export default function ItemList() {
 						photo={item.photo}
 						name={item.name.length > 23 ? item.name.slice(0, 15) : item.name}
 						price={item.price}
+						id={item.id}
 					/>
 				))}
 			</div>

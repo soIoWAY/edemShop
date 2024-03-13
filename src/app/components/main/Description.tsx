@@ -5,7 +5,7 @@ const Description = () => {
 			<div className='flex justify-start relative top-8 md:top-14'>
 				<Image src='/about-1.png' width={300} height={300} alt='about-1' />
 			</div>
-			<div className='w-[75%] sm:w-[55%] m-auto flex flex-col gap-8 my-12'>
+			<div className='w-[85%] sm:w-[55%] m-auto flex flex-col gap-8 my-12'>
 				<h1 className='text-right text-3xl font-semibold tracking-wide text-yellow-500'>
 					Edem Flowers
 				</h1>

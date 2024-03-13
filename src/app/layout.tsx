@@ -3,6 +3,7 @@ import Footer from './components/main/Footer'
 import Header from './components/main/Header'
 import Logo from './components/main/Logo'
 import Navbar from './components/main/Navbar'
+import ScrollButton from './components/main/ScrollButton'
 import './globals.css'
 
 // const inter = Inter({ subsets: ['latin'] })
@@ -21,11 +22,12 @@ export default function RootLayout({
 		<html lang='en'>
 			<body className='text-white font-thin'>
 				<Header />
-				<div className='w-[75%] m-auto'>
+				<div className='w-[90%] sm:w-[75%] m-auto'>
 					<Logo />
 					<Navbar />
 				</div>
 				<div className='w-[90%] sm:w-[75%] m-auto'>{children}</div>
+				<ScrollButton />
 				<Footer />
 			</body>
 		</html>
