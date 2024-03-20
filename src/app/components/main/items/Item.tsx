@@ -40,7 +40,7 @@ const Item = ({ photo, name, price, id }: Item) => {
 						<Image src={photo} width={320} height={320} alt={name} />
 						<div className='border-t-2 border-yellow-500 mt-2 text-xl'>
 							<p className='text-gray-300 text-base mt-1'>id:{id}</p>
-							<h2>«{name}»</h2>
+							<h2 className='tracking-wide'>«{name}»</h2>
 							<span>
 								<span className='text-yellow-500 font-bold'>{price}</span> грн
 							</span>

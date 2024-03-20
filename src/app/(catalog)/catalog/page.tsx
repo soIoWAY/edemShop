@@ -1,5 +1,5 @@
-import CatalogNav from '../components/catalog/CatalogNav'
-import CatalogWrapper from '../components/catalog/CatalogWrapper'
+import CatalogNav from '../../components/catalog/CatalogNav'
+import CatalogWrapper from '../../components/catalog/CatalogWrapper'
 export default function CatalogPage() {
 	return (
 		<div>

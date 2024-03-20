@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		domains: ['shorturl.at'],
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'i.imgur.com',
+				pathname: '**',
+			},
+		],
 	},
 }
 
