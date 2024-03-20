@@ -10,9 +10,11 @@ const Description = () => {
 					Edem Flowers
 				</h1>
 				<p className='text-left'>
-					Ласкаво просимо до{' '}
-					<span className='text-yellow-500'>Edem Flowers</span>, вашого вірного
-					провідника у світі квітів!
+					<span>
+						Ласкаво просимо до{' '}
+						<span className='text-yellow-500'>Edem Flowers</span>, вашого
+						вірного провідника у світі квітів!
+					</span>
 				</p>
 				<p className='text-right'>
 					У нашому магазині кожен квітковий букет – це{' '}

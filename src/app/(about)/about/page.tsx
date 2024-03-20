@@ -8,8 +8,9 @@ export default function About() {
 			</h1>
 			<div className='mt-5 text-left w-[80%]'>
 				<h3 className='text-xl font-semibold text-yellow-500'>
-					Ласкаво просимо до{' '}
-					<span className='text-yellow-500'>Edem Flowers</span>
+					<span className='text-yellow-500'>
+						Ласкаво просимо до Edem Flowers
+					</span>
 				</h3>
 				<p className='mt-2'>
 					Вітаємо вас в <span className='text-yellow-500'>Edem Flowers</span> -
