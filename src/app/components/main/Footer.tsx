@@ -18,7 +18,7 @@ const Footer = () => {
 				</div>
 				<div className='about-text flex flex-col gap-2 items-center md:text-xl text-center'>
 					<div className='about-text_shop'>
-						©2024 Edem flowers shop - квітковий магазин в м.Львів, вул.
+						©2024 Edem flowers Lviv - квітковий магазин в м.Львів, вул.
 						Городоцька, 300.
 					</div>
 					<div className='about-text_number text-yellow-500 border-b border-yellow-600'>
