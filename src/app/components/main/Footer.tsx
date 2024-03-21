@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { FaInstagram, FaTelegram } from 'react-icons/fa'
 
 const Footer = () => {
@@ -5,16 +6,16 @@ const Footer = () => {
 		<footer className='border-t border-yellow-600'>
 			<div className='w-[75%] flex flex-col gap-4 items-center m-auto py-10'>
 				<div className='icons text-yellow-500 flex text-4xl gap-5'>
-					<a
+					<Link
 						href='https://www.instagram.com/edem_flowers_lviv/'
 						target='_blank'
 					>
 						<span></span>
 						<FaInstagram />
-					</a>
-					<span>
+					</Link>
+					<Link href='https://t.me/xzvetal' target='_blank'>
 						<FaTelegram />
-					</span>
+					</Link>
 				</div>
 				<div className='about-text flex flex-col gap-2 items-center md:text-xl text-center'>
 					<div className='about-text_shop'>

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { FaInstagram, FaTelegram } from 'react-icons/fa'
 
 export default function About() {
@@ -61,18 +62,23 @@ export default function About() {
 			<div className='contacts text-center mt-5' id='contacts'>
 				<h3 className='text-xl font-semibold text-yellow-500'>Контакти</h3>
 				<div className=' flex flex-col items-center gap-3 mt-3'>
-					<p className='font-semibold tracking-wider'>+380689848064</p>
+					<Link
+						href='tel:+380689848064'
+						className='font-semibold tracking-wider'
+					>
+						+380689848064
+					</Link>
 					<div className='icons text-yellow-500 flex text-5xl gap-5'>
-						<a
+						<Link
 							href='https://www.instagram.com/edem_flowers_lviv/'
 							target='_blank'
 						>
 							<span></span>
 							<FaInstagram />
-						</a>
-						<span>
+						</Link>
+						<Link href='https://t.me/xzvetal'>
 							<FaTelegram />
-						</span>
+						</Link>
 					</div>
 				</div>
 			</div>
