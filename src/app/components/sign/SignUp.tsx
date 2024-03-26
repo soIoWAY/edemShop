@@ -19,7 +19,7 @@ const SignUp = () => {
 			alert('Паролі не співпадають')
 		} else {
 			await axios
-				.post('https://edem-server.vercel.app/api/auth/signup', {
+				.post('https://edem-server-two.vercel.app/api/auth/signup', {
 					username,
 					password,
 				})
