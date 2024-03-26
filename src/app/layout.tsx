@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className='text-white font-thin'>
+			<body className='text-white font-light md:font-thin'>
 				<div className='m-auto'>{children}</div>
 				<ScrollButton />
 			</body>
