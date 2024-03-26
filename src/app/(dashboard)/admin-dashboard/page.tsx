@@ -56,7 +56,7 @@ export default function AdminDashboardPage() {
 		const price = parseInt(inputPrice)
 
 		await axios
-			.post('http://localhost:5555/api/item/additem', {
+			.post('https://edem-server.vercel.app/api/item/additem', {
 				name,
 				price,
 				item_type,
@@ -77,7 +77,7 @@ export default function AdminDashboardPage() {
 		e.preventDefault()
 		const id = parseInt(inputId)
 		await axios
-			.delete(`http://localhost:5555/api/item/deleteitem/${id}`)
+			.delete(`https://edem-server.vercel.app/api/item/deleteitem/${id}`)
 			.then(res => {
 				console.log(res)
 				setInputId('')
