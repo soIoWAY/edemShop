@@ -5,15 +5,15 @@ export default function middleware(req: NextRequest) {
 	let url = req.url
 
 	if (!token && url?.includes('/dashboard')) {
-		return NextResponse.redirect('http://localhost:3000/')
+		return NextResponse.redirect('https://edemflowershop.vercel.app/')
 	}
 
 	if (!token && url?.includes('/admin-dashboard')) {
-		return NextResponse.redirect('http://localhost:3000/')
+		return NextResponse.redirect('https://edemflowershop.vercel.app/')
 	}
 
 	if (token && (url?.includes('/signin') || url?.includes('/signup'))) {
-		return NextResponse.redirect('http://localhost:3000/dashboard')
+		return NextResponse.redirect('https://edemflowershop.vercel.app/dashboard')
 	}
 
 	try {
@@ -21,14 +21,16 @@ export default function middleware(req: NextRequest) {
 			const decoded = jwt.decode(token.value) as { role: string }
 
 			if (decoded.role !== 'admin' && url?.includes('/admin-dashboard')) {
-				return NextResponse.redirect('http://localhost:3000')
+				return NextResponse.redirect('https://edemflowershop.vercel.app/')
 			}
 			if (decoded.role === 'admin' && url?.includes('/dashboard')) {
-				return NextResponse.redirect('http://localhost:3000/admin-dashboard')
+				return NextResponse.redirect(
+					'https://edemflowershop.vercel.app/admin-dashboard'
+				)
 			}
 		}
 	} catch (error) {
 		console.error('Помилка розшифрування токена - ', error)
-		return NextResponse.redirect('http://localhost:3000/')
+		return NextResponse.redirect('https://edemflowershop.vercel.app/')
 	}
 }
