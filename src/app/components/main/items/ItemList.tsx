@@ -20,7 +20,7 @@ async function getItems(
 	pathname: string | null
 ) {
 	try {
-		const urlByItemType = `http://localhost:5555/api/item/items?sort=${sortParam}&priceFrom=${priceFrom}&priceTo=${priceTo}`
+		const urlByItemType = `https://edem-server.vercel.app/api/item/items?sort=${sortParam}&priceFrom=${priceFrom}&priceTo=${priceTo}`
 		if (pathname && pathname === '/catalog/bouquets') {
 			let url = urlByItemType + '&itemType=bouquet'
 			const res = await axios.get<IItem[]>(url)

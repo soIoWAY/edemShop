@@ -16,7 +16,7 @@ const SignIn = () => {
 
 		await axios
 			.post(
-				'http://localhost:5555/api/auth/signin',
+				'https://edem-server.vercel.app/api/auth/signin',
 				{ username, password },
 				{ withCredentials: true }
 			)
