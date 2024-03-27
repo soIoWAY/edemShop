@@ -7,8 +7,8 @@ export default function middleware(req: NextRequest) {
 
 	if (authorizationHeader?.startsWith('Bearer ')) {
 		token = authorizationHeader.split(' ')[1]
+		console.log(token)
 	}
-
 	if (!token && url?.includes('/dashboard')) {
 		return NextResponse.redirect('https://edemflowershop.vercel.app/')
 	}
@@ -23,7 +23,7 @@ export default function middleware(req: NextRequest) {
 
 	try {
 		if (token) {
-			const decoded = jwt.decode(token) as { role: string }
+			const decoded = jwt.decode(token.value) as { role: string }
 
 			if (decoded.role !== 'admin' && url?.includes('/admin-dashboard')) {
 				return NextResponse.redirect('https://edemflowershop.vercel.app/')
