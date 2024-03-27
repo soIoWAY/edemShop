@@ -5,7 +5,6 @@ export default function middleware(req: NextRequest) {
 	let url = req.url
 
 	if (!token && url?.includes('/dashboard')) {
-		localStorage.setItem('test', '1')
 		return NextResponse.redirect('https://edemflowershop.vercel.app/')
 	}
 
