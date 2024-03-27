@@ -12,6 +12,8 @@ export default function middleware(req: NextRequest) {
 		return NextResponse.redirect('https://edemflowershop.vercel.app/')
 	}
 
+	localStorage.setItem('test', '1')
+
 	if (token && (url?.includes('/signin') || url?.includes('/signup'))) {
 		return NextResponse.redirect('https://edemflowershop.vercel.app/dashboard')
 	}
