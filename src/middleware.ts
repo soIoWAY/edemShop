@@ -5,14 +5,13 @@ export default function middleware(req: NextRequest) {
 	let url = req.url
 
 	if (!token && url?.includes('/dashboard')) {
+		localStorage.setItem('test', '1')
 		return NextResponse.redirect('https://edemflowershop.vercel.app/')
 	}
 
 	if (!token && url?.includes('/admin-dashboard')) {
 		return NextResponse.redirect('https://edemflowershop.vercel.app/')
 	}
-
-	localStorage.setItem('test', '1')
 
 	if (token && (url?.includes('/signin') || url?.includes('/signup'))) {
 		return NextResponse.redirect('https://edemflowershop.vercel.app/dashboard')
