@@ -80,6 +80,7 @@ const SignUp = () => {
 						type='submit'
 						className='mt-3 bg-yellow-500 m-auto rounded-md py-1 my-3 px-10 cursor-pointer'
 						value='Реєстрація'
+						disabled
 					/>
 					або
 					<Link href='/signin' className='border-b border-yellow-500'>

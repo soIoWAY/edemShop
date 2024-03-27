@@ -62,6 +62,7 @@ const SignIn = () => {
 						type='submit'
 						className='mt-3 bg-yellow-500 m-auto rounded-md py-1 my-3 px-10 cursor-pointer'
 						value='Вхід'
+						disabled
 					/>
 					або
 					<Link href='/signup' className='border-b border-yellow-500'>

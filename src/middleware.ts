@@ -1,14 +1,9 @@
 import * as jwt from 'jsonwebtoken'
 import { NextRequest, NextResponse } from 'next/server'
 export default function middleware(req: NextRequest) {
-	const authorizationHeader = req.headers.get('Authorization')
-	let token: string | null = null
+	const token = req.cookies.get('token')
 	let url = req.url
 
-	if (authorizationHeader?.startsWith('Bearer ')) {
-		token = authorizationHeader.split(' ')[1]
-		console.log(token)
-	}
 	if (!token && url?.includes('/dashboard')) {
 		return NextResponse.redirect('https://edemflowershop.vercel.app/')
 	}
